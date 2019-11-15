@@ -47,7 +47,7 @@ airflow:
   ##
   ## The executor to use.
   ##
-  executor: Celery
+  executor: Kubernetes
   ##
   ## set the max number of retries during container initialization
   initRetryLoop:
@@ -104,7 +104,9 @@ airflow:
   ##   config:
   ##     AIRFLOW__CORE__EXPOSE_CONFIG: "True"
   ##     HTTP_PROXY: "http://proxy.mycompany.com:123"
-  config: {}
+  config:
+    AIRFLOW_DEPS: "kubernetes"
+    AIRFLOW__CORE__EXECUTOR: "KubernetesExecutor"
   ##
   ## Configure pod disruption budget for the scheduler
   podDisruptionBudget:
@@ -267,7 +269,7 @@ web:
 ##
 ## Workers configuration
 workers:
-  enabled: true
+  enabled: false
   ##
   ## Number of workers pod to launch
   replicas: 1
@@ -590,7 +592,7 @@ postgresql:
   persistence:
     ##
     ## Enable PostgreSQL persistence using Persistent Volume Claims.
-    enabled: true
+    enabled: false
     ##
     ## Persistant class
     # storageClass: classname
@@ -605,7 +607,7 @@ redis:
   ##
   ## Use the redis chart dependency.
   ## Set to false if bringing your own redis.
-  enabled: true
+  enabled: false
 
   ##
   ## The name of an existing secret that contains the redis password.
