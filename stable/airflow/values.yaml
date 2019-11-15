@@ -20,12 +20,6 @@ airflow:
   ##
   ## Extra environment variables to mount in the web, scheduler, and worker pods:
   extraEnv:
-    - name: EXECUTOR
-      value: Kubernetes
-    - name: AIRFLOW_DEPS
-      value: kubernetes
-    - name: AIRFLOW__CORE__EXECUTOR
-      value: KubernetesExecutor
   #  - name: AIRFLOW__CORE__FERNET_KEY
   #    valueFrom:
   #      secretKeyRef:
@@ -110,7 +104,9 @@ airflow:
   ##   config:
   ##     AIRFLOW__CORE__EXPOSE_CONFIG: "True"
   ##     HTTP_PROXY: "http://proxy.mycompany.com:123"
-  config: {}
+  config:
+    AIRFLOW_DEPS: "kubernetes"
+    AIRFLOW__CORE__EXECUTOR: "KubernetesExecutor"
   ##
   ## Configure pod disruption budget for the scheduler
   podDisruptionBudget:
