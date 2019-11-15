@@ -596,7 +596,7 @@ postgresql:
   persistence:
     ##
     ## Enable PostgreSQL persistence using Persistent Volume Claims.
-    enabled: true
+    enabled: false
     ##
     ## Persistant class
     # storageClass: classname
