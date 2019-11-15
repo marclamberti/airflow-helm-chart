@@ -20,6 +20,12 @@ airflow:
   ##
   ## Extra environment variables to mount in the web, scheduler, and worker pods:
   extraEnv:
+    - name: EXECUTOR
+      value: Kubernetes
+    - name: AIRFLOW_DEPS
+      value: kubernetes
+    - name: AIRFLOW__CORE__EXECUTOR
+      value: KubernetesExecutor
   #  - name: AIRFLOW__CORE__FERNET_KEY
   #    valueFrom:
   #      secretKeyRef:
@@ -47,7 +53,7 @@ airflow:
   ##
   ## The executor to use.
   ##
-  executor: Celery
+  executor: Kubernetes
   ##
   ## set the max number of retries during container initialization
   initRetryLoop:
@@ -267,7 +273,7 @@ web:
 ##
 ## Workers configuration
 workers:
-  enabled: true
+  enabled: false
   ##
   ## Number of workers pod to launch
   replicas: 1
@@ -605,7 +611,7 @@ redis:
   ##
   ## Use the redis chart dependency.
   ## Set to false if bringing your own redis.
-  enabled: true
+  enabled: false
 
   ##
   ## The name of an existing secret that contains the redis password.
