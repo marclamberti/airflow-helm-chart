@@ -607,7 +607,7 @@ redis:
   ##
   ## Use the redis chart dependency.
   ## Set to false if bringing your own redis.
-  enabled: false
+  enabled: true
 
   ##
   ## The name of an existing secret that contains the redis password.
