@@ -508,10 +508,11 @@ dags:
   git:
     ##
     ## url to clone the git repository
-    url:
+    url: https://github.com/marclamberti/airflow-dags.git
     ##
     ## branch name, tag or sha1 to reset to
     ref: master
+    ##
     ## pre-created secret with key, key.pub and known_hosts file for private repos
     secret: ""
   initContainer:
