@@ -517,7 +517,7 @@ dags:
     secret: ""
   initContainer:
     ## Fetch the source code when the pods starts
-    enabled: false
+    enabled: true
     ## Image for the init container (any image with git will do)
     image:
       ## docker-airflow image
