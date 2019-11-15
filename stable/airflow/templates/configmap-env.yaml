@@ -10,6 +10,9 @@ metadata:
 data:
   ## Force UTC timezone
   TZ: Etc/UTC
+  ## Kubernetes
+  AIRFLOW_DEPS: "kubernetes"
+  AIRFLOW__CORE__EXECUTOR: "KubernetesExecutor"
   ## Postgres DB configuration
   POSTGRES_HOST: "{{ template "airflow.postgresql.fullname" . }}"
   POSTGRES_PORT: "{{ .Values.postgresql.service.port }}"
