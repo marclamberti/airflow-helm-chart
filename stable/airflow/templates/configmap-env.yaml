@@ -21,6 +21,7 @@ data:
   AIRFLOW__KUBERNETES__WORKER_CONTAINER_IMAGE_PULL_POLICY: "{{ .Value.airflow.image.pull_policy }}"
   AIRFLOW__KUBERNETES__WORKER_DAGS_FOLDER: "{{ .Values.dags.path }}"
   AIRFLOW__KUBERNETES__AIRFLOW_CONFIGMAP: "{{ template "airflow.fullname" . }}-env"
+  AIRFLOW__KUBERNETES__NAMESPACE: "{{ .Release.Namespace }}"
   ## Postgres DB configuration
   POSTGRES_HOST: "{{ template "airflow.postgresql.fullname" . }}"
   POSTGRES_PORT: "{{ .Values.postgresql.service.port }}"
