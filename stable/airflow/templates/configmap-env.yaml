@@ -16,6 +16,11 @@ data:
   AIRFLOW__KUBERNETES__GIT_REPO: "{{ .Values.dags.git.url }}"
   AIRFLOW__KUBERNETES__GIT_BRANCH: "{{ .Values.dags.git.ref }}"
   AIRFLOW__KUBERNETES__GIT_DAGS_FOLDER_MOUNT_POINT: "{{ .Values.dags.path }}"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_REPOSITORY: "{{ .Value.airflow.image.repository }}"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "{{ .Value.airflow.image.tag }}"
+  AIRFLOW__KUBERNETES__WORKER_CONTAINER_IMAGE_PULL_POLICY: "{{ .Value.airflow.image.pull_policy }}"
+  AIRFLOW__KUBERNETES__WORKER_DAGS_FOLDER: "{{ .Values.dags.path }}"
+  AIRFLOW__KUBERNETES__AIRFLOW_CONFIGMAP: "{{ template "airflow.fullname" . }}-env"
   ## Postgres DB configuration
   POSTGRES_HOST: "{{ template "airflow.postgresql.fullname" . }}"
   POSTGRES_PORT: "{{ .Values.postgresql.service.port }}"
