@@ -20,7 +20,8 @@ data:
   AIRFLOW__KUBERNETES__WORKER_CONTAINER_TAG: "{{ .Values.airflow.image.tag }}"
   AIRFLOW__KUBERNETES__WORKER_CONTAINER_IMAGE_PULL_POLICY: "{{ .Values.airflow.image.pull_policy }}"
   AIRFLOW__KUBERNETES__WORKER_DAGS_FOLDER: "{{ .Values.dags.path }}"
-  AIRFLOW__KUBERNETES__AIRFLOW_CONFIGMAP: "{{ template "airflow.fullname" . }}-env"
+  AIRFLOW__KUBERNETES__DAGS_VOLUME_SUBPATH: "repo"
+  ##AIRFLOW__KUBERNETES__AIRFLOW_CONFIGMAP: "{{ template "airflow.fullname" . }}-env"
   AIRFLOW__KUBERNETES__NAMESPACE: "{{ .Release.Namespace }}"
   ## Postgres DB configuration
   POSTGRES_HOST: "{{ template "airflow.postgresql.fullname" . }}"
