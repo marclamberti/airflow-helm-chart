@@ -90,9 +90,9 @@ spec:
       initContainers:
 {{ toYaml .Values.airflow.extraInitContainers | indent 8 }}
 {{- end }}
-      securityContext:
-        runAsUser: "airflow"
-        fsGroup: "airflow"
+#      securityContext:
+#        runAsUser: "airflow"
+#        fsGroup: "airflow"
       containers:
         - name: {{ .Chart.Name }}-scheduler
           image: {{ .Values.airflow.image.repository }}:{{ .Values.airflow.image.tag }}
