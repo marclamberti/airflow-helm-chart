@@ -23,6 +23,10 @@ data:
   AIRFLOW__KUBERNETES__LOGS_VOLUME_SUBPATH: "{{ .Values.logsPersistence.subPath | default "" }}"
   AIRFLOW__KUBERNETES__LOGS_VOLUME_CLAIM: "{{ .Values.logsPersistence.existingClaim | default (printf "%s-logs" (include "airflow.fullname" . | trunc 58 )) }}"
   {{- end }}
+  {{- if .Values.persistence.enabled }}  
+  AIRFLOW__KUBERNETES__DAGS_VOLUME_SUBPATH: "{{ .Values.persistence.subPath | default "" }}"
+  AIRFLOW__KUBERNETES__DAGS_VOLUME_CLAIM: "{{ .Values.persistence.existingClaim | default (include "airflow.fullname" .) }}"
+  {{- end }}
   ##AIRFLOW__KUBERNETES__AIRFLOW_CONFIGMAP: "{{ template "airflow.fullname" . }}-env"
   AIRFLOW__KUBERNETES__NAMESPACE: "{{ .Release.Namespace }}"
   ## Postgres DB configuration
