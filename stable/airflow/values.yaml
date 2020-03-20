@@ -449,9 +449,9 @@ persistence:
   enabled: false
   ##
   ## Existing claim to use
-  # existingClaim: nil
+  existingClaim: nil
   ## Existing claim's subPath to use, e.g. "dags" (optional)
-  # subPath: ""
+  subPath: ""
   ##
   ## Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>
