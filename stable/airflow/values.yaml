@@ -327,7 +327,7 @@ ingress:
   ## enable ingress
   ## Note: If you want to change url prefix for web ui or flower even if you do not use ingress,
   ## you can still change ingress.web.path and ingress.flower.path
-  enabled: false
+  enabled: true
   ##
   ## Configure the webserver endpoint
   web:
