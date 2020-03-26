@@ -47,9 +47,9 @@ spec:
                   key: provisioner.name
           volumeMounts:
             - name: pv-volume
-              mountPath: /persistentvolumes
+              mountPath: /persistent-volume
       volumes:
         - name: pv-volume
           nfs:
-            server: fs-47a2c22e.efs.us-west-2.amazonaws.com
-            path: /persistentvolumes
+            server: fs-83fd5432.efs.eu-west-3.amazonaws.com # must be changed by DNS of EFS
+            path: /persistent-volume
