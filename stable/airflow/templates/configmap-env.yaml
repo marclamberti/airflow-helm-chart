@@ -8,8 +8,11 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 data:
+
   ## Force UTC timezone
   TZ: Etc/UTC
+  AWS_ACCESS_KEY: "{{ .Values.aws.access_key }}"
+  AWS_SECREAT_KEY: "{{ .Values.aws.secret_key }}"
   ## Kubernetes
   {{- if .Values.dags.initContainer.enabled }} 
   AIRFLOW__KUBERNETES__GIT_REPO: "{{ .Values.dags.git.url }}"

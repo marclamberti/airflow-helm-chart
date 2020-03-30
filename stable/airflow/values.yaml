@@ -1,5 +1,9 @@
 # Duplicate this file and put your customization here
 
+aws:
+    access_key: "my_access_key"
+    secret_key: "my_secret_key"
+
 ##
 ## common settings and setting for the webserver
 airflow:
@@ -671,3 +675,5 @@ prometheusRule:
   ## Used to pass Labels that are used by the Prometheus installed in your cluster to select Prometheus Rules to work with
   ## ref: https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#prometheusspec
   additionalLabels: {}
+
+
